@@ -38,6 +38,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: on ground
+    uniqueID: 3090952865
+    locked: 0
   - name: background
     uniqueID: 731548435
     locked: 0
@@ -49,6 +52,9 @@ TagManager:
     locked: 0
   - name: on bridge
     uniqueID: 1772165985
+    locked: 0
+  - name: overlay
+    uniqueID: 3168813393
     locked: 0
   - name: logo
     uniqueID: 757326189
