@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CoinCollectable : MonoBehaviour
 {
+    [SerializeField] private int _value = 0;
     
     // Start is called before the first frame update
     void Start()
@@ -14,9 +15,13 @@ public class CoinCollectable : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(this.gameObject)
+        
+    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.gameObject.CompareTag("Player"))
         {
-
-        }    
+            Destroy(this.gameObject);
+        }
     }
 }

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 885076063318849917}
   m_Layer: 0
   m_Name: walkway
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -72,8 +72,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 731548435
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 18cc8e76933992b4aa2b249e8c7fbb72, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

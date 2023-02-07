@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class FuelCollectable : MonoBehaviour
 {
+    [SerializeField] private int _value = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +15,12 @@ public class FuelCollectable : MonoBehaviour
     void Update()
     {
         
+    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.gameObject.CompareTag("Player"))
+        {
+            Destroy(this.gameObject);
+        }
     }
 }

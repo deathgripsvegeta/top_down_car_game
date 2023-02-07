@@ -30,4 +30,11 @@ public class CarControls : MonoBehaviour
             transform.position = new Vector3(-_xRange, transform.position.y, transform.position.z);
         }
     }
+    private void OnTriggerEnter2D(Collider2D other) 
+    {
+        if(other.gameObject.CompareTag("obstacle"))
+        {
+            LevelManager.Instance.Gameover();
+        }   
+    }
 }

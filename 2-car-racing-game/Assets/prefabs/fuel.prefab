@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 723834065208535550}
   - component: {fileID: 723834065208535551}
   - component: {fileID: 2130481276447852555}
+  - component: {fileID: 7048553681596698034}
+  - component: {fileID: 3952550716692838520}
   m_Layer: 0
   m_Name: fuel
   m_TagString: Untagged
@@ -132,3 +134,37 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.4398932, y: 2.106514}
   m_EdgeRadius: 0
+--- !u!50 &7048553681596698034
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 723834065208535548}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &3952550716692838520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 723834065208535548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f57bf1c1b52ea6478d8a2ea11a101ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _value: 0
