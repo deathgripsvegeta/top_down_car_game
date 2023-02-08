@@ -13,6 +13,7 @@ public class LevelManager : MonoBehaviour
     void Awake() 
     {
         Instance = this;
+        Time.timeScale = 1;
     }
     // Start is called before the first frame update
     void Start()
@@ -30,4 +31,23 @@ public class LevelManager : MonoBehaviour
         Time.timeScale = 0;
         GameoverPanel.SetActive(true);
     }
+    public void Replay()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+    public void Home()
+    {
+        SceneManager.LoadScene("SampleScene");
+    }
+    public void Pause()
+    {
+        Time.timeScale = 0;
+        PausePanel.SetActive(true);
+    }
+    public void Play()
+    {
+        
+    }
+   
 }
+
