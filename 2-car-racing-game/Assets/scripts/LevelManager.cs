@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class LevelManager : MonoBehaviour
 {
@@ -10,6 +11,15 @@ public class LevelManager : MonoBehaviour
 
     public GameObject PausePanel;
     public GameObject GameoverPanel;
+    public TextMeshProUGUI CoinCountText;
+    public TextMeshProUGUI GasCountText;
+
+    public TextMeshProUGUI CountdownText;
+    private int _countdownTimer = 3;
+    [SerializeField] private int _coinsCollected;
+    [SerializeField] private int _gasAmount;
+    [SerializeField] private bool _isGameActive;
+   
     void Awake() 
     {
         Instance = this;
@@ -18,13 +28,21 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Time.timeScale = 1;
+        CoinCountText.text = _coinsCollected.ToString();
+        GasCountText.text = _gasAmount.ToString();
+        StartCoroutine(StartCountdownTimer());
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+    public bool StartGame()
+    {
+        //_isGameActive = true;
+        return _isGameActive;
     }
     public void Gameover()
     {
@@ -46,7 +64,35 @@ public class LevelManager : MonoBehaviour
     }
     public void Play()
     {
-        
+        Time.timeScale = 1;
+        PausePanel.SetActive(false);
+    }
+    public void UpdateLevelCoinCount(int amount)
+    {
+        _coinsCollected += amount;
+        CoinCountText.text = _coinsCollected.ToString();
+    }
+
+    public void UpdateGasAmount(int amount)
+    {
+        _gasAmount += amount;
+        GasCountText.text = _gasAmount.ToString();
+    }
+    IEnumerator StartCountdownTimer()
+    {
+        yield return new WaitForSeconds(0.5f);
+        CountdownText.gameObject.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        while(_countdownTimer > 0)
+        {
+            CountdownText.text = _countdownTimer.ToString();
+            yield return new WaitForSeconds(1f);
+            _countdownTimer--; //_countdownTimer = _countdownTimer - 1;
+        }
+        CountdownText.text = "GO!";
+        _isGameActive = true;
+        yield return new WaitForSeconds(1f);
+        CountdownText.gameObject.SetActive(false);
     }
    
 }

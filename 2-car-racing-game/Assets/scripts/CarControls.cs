@@ -17,6 +17,13 @@ public class CarControls : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(LevelManager.Instance.StartGame())
+        {
+            CarMovement();
+        }
+    }
+    private void CarMovement()
+    {
         float horizontalInput = Input.GetAxis("Horizontal");
         transform.Translate(Vector3.up * _speed * Time.deltaTime);
         transform.Translate(Vector3.right * _sideSpeed * horizontalInput * Time.deltaTime);
@@ -36,5 +43,9 @@ public class CarControls : MonoBehaviour
         {
             LevelManager.Instance.Gameover();
         }   
+    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.gameObject.CompareTag("start line"))
     }
 }

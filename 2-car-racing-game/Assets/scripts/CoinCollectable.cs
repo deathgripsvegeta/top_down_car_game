@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CoinCollectable : MonoBehaviour
 {
-    [SerializeField] private int _value = 0;
+    [SerializeField] private int _value = 1;
     
     // Start is called before the first frame update
     void Start()
@@ -21,6 +21,10 @@ public class CoinCollectable : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Player"))
         {
+           if(this.gameObject.CompareTag("coin"))
+            {
+                LevelManager.Instance.UpdateLevelCoinCount(_value);
+            }
             Destroy(this.gameObject);
         }
     }
