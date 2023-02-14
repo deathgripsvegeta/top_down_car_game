@@ -42,10 +42,14 @@ public class CarControls : MonoBehaviour
         if(other.gameObject.CompareTag("obstacle"))
         {
             LevelManager.Instance.Gameover();
-        }   
-    }
-    private void OnTriggerEnter2D(Collider2D other)
-    {
+        } 
         if(other.gameObject.CompareTag("start line"))
+        {
+            LevelManager.Instance.StartGasMeter();
+        }
+        if(other.gameObject.CompareTag("finish line"))
+        {
+
+        }  
     }
 }

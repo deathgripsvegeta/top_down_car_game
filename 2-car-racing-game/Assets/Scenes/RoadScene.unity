@@ -2687,7 +2687,7 @@ GameObject:
   - component: {fileID: 1211331388}
   m_Layer: 0
   m_Name: finish line
-  m_TagString: Untagged
+  m_TagString: finish line
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2809,8 +2809,9 @@ MonoBehaviour:
   GasCountText: {fileID: 868751935}
   CountdownText: {fileID: 1474955634}
   _coinsCollected: 0
-  _gasAmount: 0
+  _gasAmount: 10
   _isGameActive: 0
+  _currentGasAmount: 10
 --- !u!1 &1336804567
 GameObject:
   m_ObjectHideFlags: 0
@@ -4674,7 +4675,7 @@ GameObject:
   - component: {fileID: 2032990955}
   m_Layer: 0
   m_Name: start line
-  m_TagString: Untagged
+  m_TagString: start line
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -17,8 +17,9 @@ public class LevelManager : MonoBehaviour
     public TextMeshProUGUI CountdownText;
     private int _countdownTimer = 3;
     [SerializeField] private int _coinsCollected;
-    [SerializeField] private int _gasAmount;
+    [SerializeField] private int _gasAmount = 10;
     [SerializeField] private bool _isGameActive;
+    [SerializeField] private int _currentGasAmount = 10;
    
     void Awake() 
     {
@@ -75,8 +76,16 @@ public class LevelManager : MonoBehaviour
 
     public void UpdateGasAmount(int amount)
     {
-        _gasAmount += amount;
-        GasCountText.text = _gasAmount.ToString();
+        if(_currentGasAmount < _gasAmount)
+        { 
+            _currentGasAmount += amount;
+            GasCountText.text = _currentGasAmount.ToString();
+        }
+        
+    }
+    public void StartGasMeter()
+    {
+        StartCoroutine(UpdateGasMeter());
     }
     IEnumerator StartCountdownTimer()
     {
@@ -93,6 +102,15 @@ public class LevelManager : MonoBehaviour
         _isGameActive = true;
         yield return new WaitForSeconds(1f);
         CountdownText.gameObject.SetActive(false);
+    }
+    IEnumerator UpdateGasMeter()
+    {
+        while(_currentGasAmount > 0)
+        {
+            yield return new WaitForSeconds(2f);
+            _currentGasAmount--;
+            GasCountText.text = _currentGasAmount.ToString();
+        }
     }
    
 }
