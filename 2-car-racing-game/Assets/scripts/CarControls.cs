@@ -5,6 +5,7 @@ using UnityEngine;
 public class CarControls : MonoBehaviour
 {
     [SerializeField] private float _speed = 5f;
+    [SerializeField] private float _boostSpeed = 10f;
     [SerializeField] private float _sideSpeed = 5f;
     [SerializeField] private float _xRange = 4.643f;
 
@@ -49,7 +50,18 @@ public class CarControls : MonoBehaviour
         }
         if(other.gameObject.CompareTag("finish line"))
         {
-
+            
         }  
+        if(other.gameObject.CompareTag("boost"))
+        {
+            StartCoroutine(SetBoost());
+        }
+    }
+    IEnumerator SetBoost()
+    {
+        float currentSpeed = _speed;
+        _speed = currentSpeed + _boostSpeed;
+        yield return new WaitForSeconds(2f);
+        _speed = currentSpeed;
     }
 }

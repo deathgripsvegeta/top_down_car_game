@@ -9,6 +9,7 @@ TagManager:
   - obstacle
   - start line
   - finish line
+  - boost
   layers:
   - Default
   - TransparentFX

@@ -111,6 +111,7 @@ public class LevelManager : MonoBehaviour
             _currentGasAmount--;
             GasCountText.text = _currentGasAmount.ToString();
         }
+        Gameover();
     }
    
 }
