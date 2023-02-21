@@ -11,6 +11,7 @@ public class LevelManager : MonoBehaviour
 
     public GameObject PausePanel;
     public GameObject GameoverPanel;
+    public GameObject GameWonPanel;
     public TextMeshProUGUI CoinCountText;
     public TextMeshProUGUI GasCountText;
 
@@ -49,6 +50,11 @@ public class LevelManager : MonoBehaviour
     {
         Time.timeScale = 0;
         GameoverPanel.SetActive(true);
+    }
+    public void GameWon()
+    {
+        Time.timeScale = 0;
+        GameWonPanel.SetActive(true);
     }
     public void Replay()
     {

@@ -46,11 +46,12 @@ public class CarControls : MonoBehaviour
         } 
         if(other.gameObject.CompareTag("start line"))
         {
+            Debug.Log("i crossed the start line");
             LevelManager.Instance.StartGasMeter();
         }
         if(other.gameObject.CompareTag("finish line"))
         {
-            
+            LevelManager.Instance.GameWon();
         }  
         if(other.gameObject.CompareTag("boost"))
         {
