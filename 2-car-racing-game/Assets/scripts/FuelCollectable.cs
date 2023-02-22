@@ -21,6 +21,7 @@ public class FuelCollectable : MonoBehaviour
         if(other.gameObject.CompareTag("Player"))
         {
             LevelManager.Instance.UpdateGasAmount(_value);
+            LevelManager.Instance.SetGasFillAmount(_value);
           
             Destroy(this.gameObject);
         }

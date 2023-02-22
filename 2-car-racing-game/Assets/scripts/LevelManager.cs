@@ -14,6 +14,7 @@ public class LevelManager : MonoBehaviour
     public GameObject GameWonPanel;
     public TextMeshProUGUI CoinCountText;
     public TextMeshProUGUI GasCountText;
+    public Slider GasMeterSlider;
 
     public TextMeshProUGUI CountdownText;
     private int _countdownTimer = 3;
@@ -33,6 +34,7 @@ public class LevelManager : MonoBehaviour
         Time.timeScale = 1;
         CoinCountText.text = _coinsCollected.ToString();
         GasCountText.text = _gasAmount.ToString();
+        SetGasFillAmount(_gasAmount);
         StartCoroutine(StartCountdownTimer());
     }
 
@@ -79,8 +81,21 @@ public class LevelManager : MonoBehaviour
         _coinsCollected += amount;
         CoinCountText.text = _coinsCollected.ToString();
     }
+    public void SetMaxGasFillAmount(int amount)
+    {
+        GasMeterSlider.maxValue = amount;
+        GasMeterSlider.value = amount;
+    }
+    public void SetGasFillAmount(int amount) // slider value
+    {
+        if(_currentGasAmount < _gasAmount)
+        {
+            _currentGasAmount += amount;
+            GasMeterSlider.value = _currentGasAmount;
+        }
+    }
 
-    public void UpdateGasAmount(int amount)
+    public void UpdateGasAmount(int amount) // text value
     {
         if(_currentGasAmount < _gasAmount)
         { 
@@ -116,6 +131,7 @@ public class LevelManager : MonoBehaviour
             yield return new WaitForSeconds(2f);
             _currentGasAmount--;
             GasCountText.text = _currentGasAmount.ToString();
+            GasMeterSlider.value = _currentGasAmount;
         }
         Gameover();
     }
