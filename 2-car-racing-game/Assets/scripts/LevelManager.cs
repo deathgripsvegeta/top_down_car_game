@@ -18,7 +18,6 @@ public class LevelManager : MonoBehaviour
 
     public TextMeshProUGUI CountdownText;
     private int _countdownTimer = 3;
-    [SerializeField] private float _xRange = 13.59f;
     [SerializeField] public float propSpeed = 10;
     [SerializeField] private int _coinsCollected;
     [SerializeField] private int _gasAmount = 10;
@@ -29,7 +28,7 @@ public class LevelManager : MonoBehaviour
     {
         Instance = this;
         Time.timeScale = 1;
-        MoveProp();
+       
     }
     // Start is called before the first frame update
     void Start()
@@ -38,7 +37,8 @@ public class LevelManager : MonoBehaviour
         CoinCountText.text = _coinsCollected.ToString();
         GasCountText.text = _gasAmount.ToString();
         SetGasFillAmount(_gasAmount);
-        StartCoroutine(StartCountdownTimer());
+        StartCoroutine(StartCountdownTimer()); 
+        
     }
 
     // Update is called once per frame
@@ -138,16 +138,7 @@ public class LevelManager : MonoBehaviour
         }
         Gameover();
     }
-    public void MoveProp()
-    {
-        transform.Translate(Vector3.left * propSpeed * Time.deltaTime);
-        if(transform.position.x < -_xRange)
-        {
-            transform.position = new Vector2(_xRange, 4.34f);
-        }
-        
-        
-    }
+    
    
 }
 

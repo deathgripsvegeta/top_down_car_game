@@ -10,6 +10,8 @@ TagManager:
   - start line
   - finish line
   - boost
+  - prop
+  - train
   layers:
   - Default
   - TransparentFX

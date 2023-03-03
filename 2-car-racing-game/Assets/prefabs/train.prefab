@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 8227330117065394151}
   - component: {fileID: 5687400658242583281}
   - component: {fileID: 3713689978760655207}
-  - component: {fileID: 8651678644066775624}
   m_Layer: 0
   m_Name: train
   m_TagString: obstacle
@@ -124,17 +123,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 6
---- !u!114 &8651678644066775624
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1620324208838435936}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb5c3854d521bfe40995c39e43456b23, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 10
-  _xRange: 8.84
