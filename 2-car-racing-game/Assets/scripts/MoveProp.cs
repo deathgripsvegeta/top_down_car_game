@@ -10,20 +10,21 @@ public class MoveProp : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(gameObject.CompareTag("prop"))
-        {
-            transform.Translate(Vector3.up * speed * Time.deltaTime);
-        }
+        transform.Translate(Vector3.up * speed * Time.deltaTime);
         if(transform.position.x < -xStart)
         {
-            transform.position = new Vector2(xStart, 0);
+            StartCoroutine(Wait());
+            transform.position = new Vector2(xStart, transform.position.y);
         }
+    }
+    IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(3);
     }
 
 }
