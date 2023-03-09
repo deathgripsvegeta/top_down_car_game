@@ -9,26 +9,31 @@ public class MoveProp : MonoBehaviour
     public float trainSpeed;
     public GameObject Train;
     public GameObject PropCar;
+    
+    private bool _isGameActive;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        _isGameActive=true;
     }
     void Update()
     {
-        CarMove();
-        TrainMove();
+        if(_isGameActive == true)
+        {
+            CarMove();
+            TrainMove();
+        }
     }
     public void CarMove()
     {
-        transform.Translate(Vector3.up * speed * Time.deltaTime);
-        if(transform.position.x < -xStart)
+        PropCar.gameObject.transform.Translate(Vector3.up * speed * Time.deltaTime);
+        if(PropCar.transform.position.x < -xStart)
         {
-        StartCoroutine(Wait());
-        transform.position = new Vector2(xStart, transform.position.y);
+            StartCoroutine(Wait());
+            PropCar.transform.position = new Vector2(xStart, PropCar.transform.position.y);
         }
-        //im moving something
+        
     }
     IEnumerator Wait()
     {
@@ -37,13 +42,12 @@ public class MoveProp : MonoBehaviour
     
     public void TrainMove()
     {
-        transform.Translate(Vector3.left * trainSpeed * Time.deltaTime);
-        if(transform.position.x < -xStart)
+        Train.gameObject.transform.Translate(Vector3.left * trainSpeed * Time.deltaTime);
+        if(Train.transform.position.x < -xStart)
         {
-        StartCoroutine(Wait());
-        transform.position = new Vector2(xStart, transform.position.y);
+            StartCoroutine(Wait());
+            Train.transform.position = new Vector2(xStart, Train.transform.position.y);
         }
-        //im moving something too
     }
 
 }
